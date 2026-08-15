@@ -123,10 +123,22 @@ button{cursor:pointer}
     85%{transform:translate(0) rotate(0) scale(1.03)}
     100%{opacity:1;transform:translate(0) rotate(0) scale(1);filter:blur(0)}
 }
+/* =========================================================
+   THEME-AWARE BRAND LOGOS
+   Transparent PNGs: exact uploaded logo silhouette, recolored
+   for the active Luxury Gold / Midnight Cyan theme.
+========================================================= */
+.theme-logo{display:block;object-fit:contain;background:transparent!important;}
+.theme-logo-cyan{display:none!important;}
+body[data-theme="cyan"] .theme-logo-gold{display:none!important;}
+body[data-theme="cyan"] .theme-logo-cyan{display:block!important;}
+body:not([data-theme="cyan"]) .theme-logo-gold{display:block!important;}
+body:not([data-theme="cyan"]) .theme-logo-cyan{display:none!important;}
+
 .final-sc{position:absolute;left:50%;top:35%;width:220px;height:150px;transform:translate(-50%,-50%) scale(.2);opacity:0;z-index:30}
 .final-sc.show{animation:finalSCIn .75s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes finalSCIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(-8deg);filter:blur(12px)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.08) rotate(2deg);filter:blur(0)}70%{transform:translate(-50%,-50%) scale(.96)}100%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}}
-.final-sc svg{width:100%;height:100%;overflow:visible}
+.final-sc img.theme-logo{width:100%;height:100%;display:block;object-fit:contain;border-radius:0;background:transparent!important}
 .tech-corners{fill:none;stroke:rgba(var(--theme-accent-rgb),.55);stroke-width:1.2;stroke-linecap:round;stroke-dasharray:30 12;opacity:0;animation:cornersIn .7s ease .15s forwards}
 @keyframes cornersIn{from{opacity:0;stroke-dashoffset:100}to{opacity:.8;stroke-dashoffset:0}}
 .sc-main{fill:none;stroke:url(#metalGold);stroke-width:13;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(var(--theme-accent-2-rgb),.85)) drop-shadow(0 0 16px rgba(var(--theme-accent-rgb),.4))}
@@ -140,8 +152,6 @@ button{cursor:pointer}
 @keyframes dividerIn{from{opacity:0}to{opacity:.8}}
 .sc-glow{fill:none;stroke:var(--gold);stroke-width:28;stroke-linecap:round;stroke-linejoin:round;opacity:.09;filter:blur(12px);animation:scGlow 2.2s ease-in-out 1s infinite}
 @keyframes scGlow{0%,100%{opacity:.06}50%{opacity:.2}}
-.final-sc:after{content:"";position:absolute;top:-10px;left:-80px;width:35px;height:170px;transform:rotate(25deg);background:linear-gradient(90deg,transparent,rgba(255,245,210,.65),transparent);filter:blur(5px);opacity:0;animation:scSweep .9s ease .85s forwards}
-@keyframes scSweep{0%{left:-80px;opacity:0}20%{opacity:.8}100%{left:260px;opacity:0}}
 .final-word{position:absolute;left:50%;top:63%;transform:translate(-50%,-50%) scale(.9);text-align:center;opacity:0;z-index:40}
 .final-word.show{animation:finalWordIn .65s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes finalWordIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.9);filter:blur(8px)}60%{opacity:1;transform:translate(-50%,-50%) scale(1.04);filter:blur(0)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
@@ -175,28 +185,25 @@ button{cursor:pointer}
 .nav-brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px}
 .nav-logo{
     position:relative;width:42px;height:42px;display:grid;place-items:center;
-    border:1px solid rgba(var(--theme-accent-rgb),.38);border-radius:13px;
+    border:1px solid rgba(var(--theme-accent-rgb),.35);border-radius:13px;
     color:var(--gold3);font-size:12px;font-weight:900;letter-spacing:-1px;
-    background:linear-gradient(145deg,rgba(var(--theme-accent-rgb),.16),rgba(255,255,255,.025));
+    background:rgba(5,5,5,.82);
     box-shadow:inset 0 0 18px rgba(var(--theme-accent-rgb),.08),0 0 0 transparent;
     overflow:hidden;isolation:isolate;
     transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .4s ease,border-color .4s ease;
 }
+/* Original running colour-border animation restored */
 .nav-logo::before{
-    content:"";position:absolute;inset:-35%;border-radius:50%;
-    background:conic-gradient(from 0deg,transparent 0 38%,var(--gold2) 46%,transparent 54% 70%,rgba(var(--theme-accent-rgb),.9) 78%,transparent 86%);
+    content:"";position:absolute;inset:-45%;border-radius:50%;
+    background:conic-gradient(from 0deg,transparent 0 38%,var(--gold2) 46%,transparent 54% 70%,rgba(var(--theme-accent-rgb),.95) 78%,transparent 86%);
     animation:navLogoOrbit 4.8s linear infinite;z-index:-2;
 }
 .nav-logo::after{
     content:"";position:absolute;inset:1px;border-radius:12px;z-index:-1;
-    background:radial-gradient(circle at 35% 20%,rgba(255,240,184,.16),transparent 42%),#080808;
+    background:radial-gradient(circle at 35% 20%,rgba(var(--theme-accent-rgb),.12),transparent 42%),#080808;
 }
-.nav-logo span{position:relative;z-index:2;display:grid;place-items:center;width:100%;height:100%;text-shadow:0 0 8px rgba(var(--theme-accent-2-rgb),.65)}
-.nav-logo span::after{
-    content:"";position:absolute;width:3px;height:24px;left:-8px;top:9px;
-    background:linear-gradient(180deg,transparent,var(--gold3),transparent);filter:blur(1px);
-    transform:skewX(-18deg);opacity:0;animation:navLogoShine 3.8s ease-in-out infinite;
-}
+.nav-logo img.theme-logo{position:relative;z-index:2;width:100%;height:100%;padding:5px;object-fit:contain;border-radius:0;background:transparent!important}
+.nav-logo img::after{content:none}
 .nav-brand:hover .nav-logo{transform:translateY(-2px) scale(1.08) rotate(2deg);border-color:var(--gold2);box-shadow:0 0 18px rgba(var(--theme-accent-rgb),.2),0 0 42px rgba(var(--theme-accent-rgb),.08),inset 0 0 20px rgba(var(--theme-accent-rgb),.12)}
 @keyframes navLogoOrbit{to{transform:rotate(360deg)}}
 @keyframes navLogoShine{0%,55%{left:-10px;opacity:0}65%{opacity:.9}82%{left:48px;opacity:0}100%{left:48px;opacity:0}}
@@ -230,7 +237,7 @@ button{cursor:pointer}
 .mobile-menu.open a:nth-child(1){transition-delay:.05s}.mobile-menu.open a:nth-child(2){transition-delay:.09s}.mobile-menu.open a:nth-child(3){transition-delay:.13s}.mobile-menu.open a:nth-child(4){transition-delay:.17s}.mobile-menu.open a:nth-child(5){transition-delay:.21s}.mobile-menu.open a:nth-child(6){transition-delay:.25s}
 .mobile-menu a:hover{background:rgba(var(--theme-accent-rgb),.07);border-color:rgba(var(--theme-accent-rgb),.16);color:#fff;transform:translateY(-2px)}
 @media(max-width:600px){.nav-logo{width:38px;height:38px;border-radius:11px;font-size:11px}.nav-brand{gap:9px}.nav-brand small{font-size:7px;letter-spacing:2.2px}.mobile-menu{top:70px;padding:16px 16px 20px}}
-@media(prefers-reduced-motion:reduce){.nav-logo::before,.nav-logo span::after{animation:none!important}.mobile-menu,.mobile-menu a,.menu-btn span{transition:none!important}.nav-brand:hover .nav-logo{transform:none}}
+@media(prefers-reduced-motion:reduce){.nav-logo::before,.nav-logo img{animation:none!important}.mobile-menu,.mobile-menu a,.menu-btn span{transition:none!important}.nav-brand:hover .nav-logo{transform:none}}
 .nav-brand small{display:block;color:#777;font-size:8px;letter-spacing:3px;margin-top:2px;font-weight:500}
 .nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a{font-size:13px;color:#a2a2a2;transition:.25s}
@@ -3359,7 +3366,7 @@ section.block{
     .container{width:min(var(--max),calc(100% - 28px))}
     .intro{width:100vw;height:540px}.orbit.one{width:300px;height:300px}.orbit.two{width:245px;height:245px}.orbit.three{width:190px;height:190px}
     .first-s{width:175px;height:175px}.word{top:60%}.letter{font-size:33px;letter-spacing:1px}
-    .final-sc{width:175px;height:120px;top:35%}.brand-name{font-size:34px;letter-spacing:4px}.subtitle{font-size:7px;letter-spacing:5px}.developer-label{font-size:7px;letter-spacing:2px}
+    .final-sc{width:175px;height:175px;top:35%}.brand-name{font-size:34px;letter-spacing:4px}.subtitle{font-size:7px;letter-spacing:5px}.developer-label{font-size:7px;letter-spacing:2px}
     .hero h1{font-size:52px;letter-spacing:-3px}.hero-stats{gap:18px;flex-wrap:wrap}.stat strong{font-size:21px}
     .services-grid,.pricing-grid,.process-grid,.work-grid{grid-template-columns:1fr}
     section.block{padding:78px 0}.section-head{display:block}.section-copy{margin-top:15px}
