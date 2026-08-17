@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+
+<title>Ananda Lodge Front Desk Management System (FDMS) | SURYA CODE</title>
+<meta name="description" content="Case study: a hotel/lodge Front Desk Management System — reservations, room board, housekeeping and billing, available as a PWA and an offline Electron.js desktop edition.">
+<link rel="canonical" href="https://suryacode.com/projects/ananda-lodge-fdms/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="SURYA CODE">
+<meta name="application-name" content="SURYA CODE">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=yes">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SURYA CODE">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://suryacode.com/projects/ananda-lodge-fdms/">
+<meta property="og:title" content="Ananda Lodge Front Desk Management System (FDMS) | SURYA CODE">
+<meta property="og:description" content="Case study: a hotel/lodge Front Desk Management System — reservations, room board, housekeeping, maintenance and billing, available as a PWA and an offline Electron.js desktop edition.">
+<meta property="og:image" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta property="og:image:secure_url" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SURYA CODE - Digital Software & Web Solutions">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@suryacode">
+<meta name="twitter:creator" content="@suryacode">
+<meta name="twitter:title" content="Ananda Lodge Front Desk Management System (FDMS) | SURYA CODE">
+<meta name="twitter:description" content="Case study: a hotel/lodge Front Desk Management System — reservations, room board, housekeeping, maintenance and billing, available as a PWA and an offline Electron.js desktop edition.">
+<meta name="twitter:image" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta name="twitter:image:alt" content="SURYA CODE - Digital Software & Web Solutions">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "CreativeWork", "@id": "https://suryacode.com/projects/ananda-lodge-fdms/#project", "name": "Ananda Lodge Front Desk Management System", "description": "Case study: a Front Desk Management System for Ananda Lodge covering reservations, room board, housekeeping, maintenance, billing and expenditure, available as a PWA and an offline Electron.js desktop edition.", "creator": {"@id": "https://suryacode.com/#organization"}, "url": "https://suryacode.com/projects/ananda-lodge-fdms/"}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://suryacode.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://suryacode.com/projects/"},{"@type":"ListItem","position":3,"name":"Ananda Lodge FDMS","item":"https://suryacode.com/projects/ananda-lodge-fdms/"}]
+}
+</script>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/icon.png">
+</head>
+<body>
+
+<header class="site-nav">
+    <div class="nav-inner">
+        <a class="nav-brand" href="/" aria-label="SURYA CODE home">
+            <span class="nav-logo">
+                <img class="theme-logo theme-logo-gold" src="/logo-gold.png" alt="SURYA CODE logo" width="175" height="173">
+                <img class="theme-logo theme-logo-cyan" src="/logo-cyan.png" alt="SURYA CODE logo" width="175" height="173">
+            </span>
+            <span>SURYA CODE<small>DIGITAL SOLUTIONS</small></span>
+        </a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/software-development/">Software</a>
+            <a href="/projects/">Work</a>
+            <a href="/#pricing">Pricing</a>
+            <button class="theme-switcher" id="themeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span class="theme-switcher-ring"></span>
+            </button>
+            <a href="/#contact" class="nav-cta">Start a Project</a>
+        </nav>
+        <div class="mobile-nav-actions">
+            <button class="theme-switcher mobile-nav-theme" id="mobileThemeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span class="theme-switcher-ring"></span>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/software-development/">Software</a>
+    <a href="/projects/">Work</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#contact">Start a Project</a>
+</div>
+<main id="main-content" class="show" style="opacity:1">
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span>/</span></li><li><a href="/projects/">Work</a></li><li><span>/</span></li><li aria-current="page">Ananda Lodge FDMS</li></ol></nav>
+<section class="block page-hero">
+    <div class="container">
+        <div class="section-kicker reveal">Case Study</div>
+        <h1 class="reveal">Ananda Lodge<br><em>Front Desk Management System.</em></h1>
+        <p class="lede reveal">A real Front Desk Management System keeping reservations, the room board, housekeeping, maintenance and billing in sync for a working lodge.</p>
+    </div>
+</section>
+
+<div class="container">
+<div class="case-meta reveal">
+    <div><small>Industry</small><span>Hotel / Lodge</span></div>
+    <div><small>Type</small><span>Web App (PWA) + Desktop Edition</span></div>
+    <div><small>Stack</small><span>Vanilla JS, Bootstrap, Google Apps Script</span></div>
+    <div><small>Status</small><span>Active, iterating</span></div>
+</div>
+</div>
+
+<section class="block" style="padding-top:0">
+    <div class="container">
+        <div class="prose reveal">
+            <h2>The problem</h2>
+            <p>Ananda Lodge needed reservations, room status, housekeeping, maintenance and billing to stay in sync at the front desk in real time, instead of living across a register book and separate memory.</p>
+            <h2>The solution</h2>
+            <p>A Front Desk Management System (FDMS) with a Google Sheets backend (via a full Google Apps Script API), available both as an installable web app (PWA, offline-capable) and as an Electron.js Windows desktop edition with local-first storage and two-way cloud sync — so the front desk keeps working through a connectivity drop either way.</p>
+        </div>
+        <div class="feature-grid">
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Reservations & room board</h4>
+        <p>Bookings and a visual room board with an edit flow that reuses the reservation modal for quick updates.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Housekeeping & maintenance</h4>
+        <p>Dedicated modules tracking room-cleaning status and maintenance issues alongside daily operations.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Billing & expenditure</h4>
+        <p>Guest billing plus a full expenditure CRUD module for day-to-day lodge expenses.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Daily room register reports</h4>
+        <p>PDF reports generated per register slot, rooms listed in order, for daily front-desk record-keeping.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Role-based room editing</h4>
+        <p>Room-detail editing restricted to admin accounts; staff retain full add/remove/view access.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Offline-first & dark mode</h4>
+        <p>PWA offline support with a service worker, plus a full dark-mode theme with a persisted preference.</p>
+    </article></div>
+        <h3 style="margin-top:40px">Technology</h3>
+        <div class="pill-row"><span>Vanilla JavaScript</span><span>Bootstrap</span><span>Google Apps Script</span><span>Google Sheets</span><span>Electron.js (desktop edition)</span><span>Service Worker / PWA</span></div>
+        <p class="simple-footer-note">Development approach: the backend (database, auth, settings and reservation logic) was reverse-engineered from the existing frontend API contract and then extended module by module — dashboard filters, expenditure tracking, pagination, dark mode and role-based permissions — with a separate Electron desktop edition kept in sync with the web edition's data model. No client revenue or occupancy figures are published here.</p>
+    </div>
+</section>
+
+<div class="cta-band reveal">
+    <div>
+        <h3>Running a hotel or lodge front desk on a register book?</h3>
+        <p>See what a Front Desk Management System built for your property would include.</p>
+    </div>
+    <div class="btn-row">
+        <a href="/hotel-management-software/" class="btn btn-primary">See Hotel & Lodge Software</a>
+        
+    </div>
+</div>
+<div class="container"><div class="related-links reveal"><a href="/hotel-management-software/">Hotel & Lodge Management Software</a><a href="/projects/">All Projects</a><a href="/billing-pos-software/">Billing & POS Software</a></div></div>
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-brand">SURYA <span>CODE</span><small>DIGITAL • SOFTWARE • WEB</small></div>
+        <div class="footer-links"><a href="/">Home</a> <a href="/about/">About</a> <a href="/services/">Services</a> <a href="/software-development/">Software</a><a href="/projects/">Work</a><a href="/#pricing">Pricing</a><a href="/#contact">Contact</a></div>
+        <div class="copyright">© <span id="year"></span> SURYA CODE. All rights reserved.</div>
+    </div>
+</footer>
+</main>
+
+<script src="/js/site.js"></script>
+</body>
+</html>

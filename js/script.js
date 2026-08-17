@@ -12,30 +12,47 @@ let introDone=false;
 function enterSite(){
     if(introDone)return;
     introDone=true;
+    sessionStorage.setItem(INTRO_SESSION_KEY,"1");
     landing.classList.add("hide");
     document.body.classList.remove("locked");
     setTimeout(()=>mainContent.classList.add("show"),250);
 }
 
-window.addEventListener("load",()=>{
-    setTimeout(()=>{
-        word.classList.add("active");
+const INTRO_SESSION_KEY="suryaCodeIntroPlayed";
+
+function skipIntro(){
+    introDone=true;
+    landing.classList.add("hide","skip");
+    mainContent.style.transition="none";
+    document.body.classList.remove("locked");
+    mainContent.classList.add("show");
+}
+
+if(sessionStorage.getItem(INTRO_SESSION_KEY)){
+    // Intro already played once this session — show the site instantly
+    // instead of replaying the ~5s brand animation on every page view.
+    skipIntro();
+}else{
+    window.addEventListener("load",()=>{
         setTimeout(()=>{
-            firstS.style.opacity="0";
-            firstS.style.transform="translate(-50%,-50%) scale(.45)";
-        },120);
-    },1850);
+            word.classList.add("active");
+            setTimeout(()=>{
+                firstS.style.opacity="0";
+                firstS.style.transform="translate(-50%,-50%) scale(.45)";
+            },120);
+        },1850);
 
-    setTimeout(()=>finalSC.classList.add("show"),2750);
+        setTimeout(()=>finalSC.classList.add("show"),2750);
 
-    setTimeout(()=>{
-        word.style.opacity="0";
-        finalWord.classList.add("show");
-    },3450);
+        setTimeout(()=>{
+            word.style.opacity="0";
+            finalWord.classList.add("show");
+        },3450);
 
-    setTimeout(enterSite,5000);
-});
-landing.addEventListener("click",enterSite);
+        setTimeout(enterSite,5000);
+    });
+    landing.addEventListener("click",enterSite);
+}
 
 /* =========================================================
    NAVIGATION

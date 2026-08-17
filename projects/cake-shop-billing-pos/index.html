@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+
+<title>Cake Shop Billing POS Software | SURYA CODE</title>
+<meta name="description" content="Case study: an offline-first Electron.js billing and POS system for a cake shop — takeaway/dining/order billing, silent thermal printing, expenses and cash-drawer reconciliation.">
+<link rel="canonical" href="https://suryacode.com/projects/cake-shop-billing-pos/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="SURYA CODE">
+<meta name="application-name" content="SURYA CODE">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=yes">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SURYA CODE">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://suryacode.com/projects/cake-shop-billing-pos/">
+<meta property="og:title" content="Cake Shop Billing POS Software | SURYA CODE">
+<meta property="og:description" content="Case study: an offline-first Electron.js billing and POS system for a cake shop — takeaway/dining/order billing, silent thermal printing, expenses and cash-drawer reconciliation.">
+<meta property="og:image" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta property="og:image:secure_url" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SURYA CODE - Digital Software & Web Solutions">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@suryacode">
+<meta name="twitter:creator" content="@suryacode">
+<meta name="twitter:title" content="Cake Shop Billing POS Software | SURYA CODE">
+<meta name="twitter:description" content="Case study: an offline-first Electron.js billing and POS system for a cake shop — takeaway/dining/order billing, silent thermal printing, expenses and cash-drawer reconciliation.">
+<meta name="twitter:image" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta name="twitter:image:alt" content="SURYA CODE - Digital Software & Web Solutions">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "CreativeWork", "@id": "https://suryacode.com/projects/cake-shop-billing-pos/#project", "name": "Cake Shop Billing & POS Software", "description": "Case study: an offline-first Electron.js billing and POS system built for a cake shop, covering takeaway/dining/order billing, thermal printing, expenses and cash-drawer reconciliation.", "creator": {"@id": "https://suryacode.com/#organization"}, "url": "https://suryacode.com/projects/cake-shop-billing-pos/"}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://suryacode.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://suryacode.com/projects/"},{"@type":"ListItem","position":3,"name":"Cake Shop Billing POS","item":"https://suryacode.com/projects/cake-shop-billing-pos/"}]
+}
+</script>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/icon.png">
+</head>
+<body>
+
+<header class="site-nav">
+    <div class="nav-inner">
+        <a class="nav-brand" href="/" aria-label="SURYA CODE home">
+            <span class="nav-logo">
+                <img class="theme-logo theme-logo-gold" src="/logo-gold.png" alt="SURYA CODE logo" width="175" height="173">
+                <img class="theme-logo theme-logo-cyan" src="/logo-cyan.png" alt="SURYA CODE logo" width="175" height="173">
+            </span>
+            <span>SURYA CODE<small>DIGITAL SOLUTIONS</small></span>
+        </a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/software-development/">Software</a>
+            <a href="/projects/">Work</a>
+            <a href="/#pricing">Pricing</a>
+            <button class="theme-switcher" id="themeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span class="theme-switcher-ring"></span>
+            </button>
+            <a href="/#contact" class="nav-cta">Start a Project</a>
+        </nav>
+        <div class="mobile-nav-actions">
+            <button class="theme-switcher mobile-nav-theme" id="mobileThemeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span class="theme-switcher-ring"></span>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/software-development/">Software</a>
+    <a href="/projects/">Work</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#contact">Start a Project</a>
+</div>
+<main id="main-content" class="show" style="opacity:1">
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span>/</span></li><li><a href="/projects/">Work</a></li><li><span>/</span></li><li aria-current="page">Cake Shop Billing POS</li></ol></nav>
+<section class="block page-hero">
+    <div class="container">
+        <div class="section-kicker reveal">Case Study</div>
+        <h1 class="reveal">Cake Shop Billing<br>& <em>POS Software.</em></h1>
+        <p class="lede reveal">An Electron.js Windows desktop billing system built for a working bakery — covering the counter, the kitchen ticket, the expense log and the end-of-day cash count.</p>
+    </div>
+</section>
+
+<div class="container">
+<div class="case-meta reveal">
+    <div><small>Industry</small><span>Bakery / Cake Shop Retail</span></div>
+    <div><small>Type</small><span>Windows Desktop App</span></div>
+    <div><small>Stack</small><span>Electron.js, Bootstrap, Vanilla JS</span></div>
+    <div><small>Status</small><span>Active, iterating</span></div>
+</div>
+</div>
+
+<section class="block" style="padding-top:0">
+    <div class="container">
+        <div class="prose reveal">
+            <h2>The problem</h2>
+            <p>A cake shop counter handles takeaway sales, dine-in bills, custom cake orders and daily cash — often across separate notebooks with no connected view of stock, expenses or end-of-day cash reconciliation.</p>
+            <h2>The solution</h2>
+            <p>An Electron.js Windows desktop billing application storing data locally first, with background sync to Google Sheets. Billing, orders, expenses and cash management all live in one system, and the owner can check sales from a phone through a separate mobile-friendly dashboard.</p>
+        </div>
+        <div class="feature-grid">
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Takeaway, dining & orders billing</h4>
+        <p>Separate billing flows for takeaway, dine-in and cake orders, with disabled-but-visible edit history on past bills.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Silent thermal printing</h4>
+        <p>Direct thermal printing for bills and kitchen tickets with no print-preview dialog interrupting the counter.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Expense management</h4>
+        <p>Categorised expenses with filters, pagination, CSV export and printable reports.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Cash drawer reconciliation</h4>
+        <p>Denomination-based opening/closing counts with automatic expected-cash calculation and shortage/excess detection.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Soft delete with audit trail</h4>
+        <p>Deleted bills, expenses and orders are never removed — they are flagged with a staff name and reason, and excluded from totals with a restore option.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Owner mobile dashboard</h4>
+        <p>A separate mobile web dashboard with Today/Yesterday/custom-date filters and drill-down into the underlying records.</p>
+    </article></div>
+        <h3 style="margin-top:40px">Technology</h3>
+        <div class="pill-row"><span>Electron.js</span><span>HTML/CSS</span><span>Bootstrap</span><span>Vanilla JavaScript</span><span>Google Sheets</span><span>Google Apps Script</span></div>
+        <p class="simple-footer-note">Development approach: built and extended iteratively as new needs came up — including a self-contained license registration and validation system, upgraded pagination across product/order/sales screens, and an owner-facing reporting layer — while keeping the existing stack and structure intact on every update. Client-specific sales figures are not published here as exact numbers were not disclosed for public use.</p>
+    </div>
+</section>
+
+<div class="cta-band reveal">
+    <div>
+        <h3>Running a bakery or cake shop counter on paper?</h3>
+        <p>See what a billing system built specifically for cake-shop workflows would include.</p>
+    </div>
+    <div class="btn-row">
+        <a href="/billing-pos-software/" class="btn btn-primary">See Billing & POS Software</a>
+        
+    </div>
+</div>
+<div class="container"><div class="related-links reveal"><a href="/billing-pos-software/">Billing & POS Software</a><a href="/projects/">All Projects</a><a href="/business-management-software/">Business Management Software</a></div></div>
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-brand">SURYA <span>CODE</span><small>DIGITAL • SOFTWARE • WEB</small></div>
+        <div class="footer-links"><a href="/">Home</a><a href="/about/">About</a> <a href="/services/">Services</a> <a href="/software-development/">Software</a><a href="/projects/">Work</a><a href="/#pricing">Pricing</a><a href="/#contact">Contact</a></div>
+        <div class="copyright">© <span id="year"></span> SURYA CODE. All rights reserved.</div>
+    </div>
+</footer>
+</main>
+
+<script src="/js/site.js"></script>
+</body>
+</html>

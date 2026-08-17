@@ -1,4 +1,11 @@
+ErrorDocument 404 /404.html
 RewriteEngine On
+
+# Canonical host: force https:// and non-www (matches canonical/OG/sitemap URLs)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.suryacode\.com$ [NC]
+RewriteRule ^ https://suryacode.com%{REQUEST_URI} [R=301,L]
+
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -6,3 +13,19 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^(.+?)/?$ /$1.html [L]
 DirectoryIndex index.html
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json image/svg+xml
+</IfModule>
+
+# Browser caching for static assets (HTML is left uncached so page/SEO edits go live immediately)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType image/x-icon "access plus 6 months"
+  ExpiresByType application/xml "access plus 1 day"
+</IfModule>

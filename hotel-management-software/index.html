@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+
+<title>Hotel & Lodge Management Software (Front Desk System) | SURYA CODE</title>
+<meta name="description" content="Front Desk Management System (FDMS) development for hotels and lodges — reservations, room board, housekeeping and billing, built offline-first with Google Sheets sync.">
+<link rel="canonical" href="https://suryacode.com/hotel-management-software/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="SURYA CODE">
+<meta name="application-name" content="SURYA CODE">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=yes">
+<meta name="keywords" content="hotel management software, lodge management software, hotel billing software, front desk management system, hotel reservation software, room management software">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SURYA CODE">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://suryacode.com/hotel-management-software/">
+<meta property="og:title" content="Hotel & Lodge Management Software (Front Desk System) | SURYA CODE">
+<meta property="og:description" content="Front Desk Management System (FDMS) development for hotels and lodges — reservations, room board, housekeeping, maintenance and billing, built offline-first with Google Sheets sync.">
+<meta property="og:image" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta property="og:image:secure_url" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SURYA CODE - Digital Software & Web Solutions">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@suryacode">
+<meta name="twitter:creator" content="@suryacode">
+<meta name="twitter:title" content="Hotel & Lodge Management Software (Front Desk System) | SURYA CODE">
+<meta name="twitter:description" content="Front Desk Management System (FDMS) development for hotels and lodges — reservations, room board, housekeeping, maintenance and billing, built offline-first with Google Sheets sync.">
+<meta name="twitter:image" content="https://res.cloudinary.com/ae3jvypd/image/upload/f_jpg/q_auto/icon.jpg">
+<meta name="twitter:image:alt" content="SURYA CODE - Digital Software & Web Solutions">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Service", "@id": "https://suryacode.com/hotel-management-software/#service", "name": "Hotel & Lodge Management Software", "description": "Front Desk Management System (FDMS) development for hotels and lodges — reservations, room board, housekeeping, maintenance, billing and expenditure, offline-first with Google Sheets sync.", "provider": {"@id": "https://suryacode.com/#organization"}, "areaServed": {"@type": "State", "name": "Tamil Nadu"}, "url": "https://suryacode.com/hotel-management-software/"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can the system work if our internet goes down?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It is built local-first with a PWA/offline mode (and an Electron desktop edition), syncing to the backend once the connection is back."}}, {"@type": "Question", "name": "Can it generate a daily room register report?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — a printable daily room register (PDF) grouped by register slot and room number can be generated directly from the reservation data."}}, {"@type": "Question", "name": "Can staff and admin have different permissions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Certain actions, such as editing room details, can be restricted to admin accounts while staff retain day-to-day operations."}}, {"@type": "Question", "name": "Is this only for hotels, or also small lodges?", "acceptedAnswer": {"@type": "Answer", "text": "It is built for both — the module set (reservations, housekeeping, maintenance, billing, expenditure) scales down cleanly for a smaller lodge front desk."}}]}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://suryacode.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://suryacode.com/services/"},{"@type":"ListItem","position":3,"name":"Hotel & Lodge Management Software","item":"https://suryacode.com/hotel-management-software/"}]
+}
+</script>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/icon.png">
+</head>
+<body>
+
+<header class="site-nav">
+    <div class="nav-inner">
+        <a class="nav-brand" href="/" aria-label="SURYA CODE home">
+            <span class="nav-logo">
+                <img class="theme-logo theme-logo-gold" src="/logo-gold.png" alt="SURYA CODE logo" width="175" height="173">
+                <img class="theme-logo theme-logo-cyan" src="/logo-cyan.png" alt="SURYA CODE logo" width="175" height="173">
+            </span>
+            <span>SURYA CODE<small>DIGITAL SOLUTIONS</small></span>
+        </a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/software-development/">Software</a>
+            <a href="/projects/">Work</a>
+            <a href="/#pricing">Pricing</a>
+            <button class="theme-switcher" id="themeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span class="theme-switcher-ring"></span>
+            </button>
+            <a href="/#contact" class="nav-cta">Start a Project</a>
+        </nav>
+        <div class="mobile-nav-actions">
+            <button class="theme-switcher mobile-nav-theme" id="mobileThemeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span class="theme-switcher-ring"></span>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/software-development/">Software</a>
+    <a href="/projects/">Work</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#contact">Start a Project</a>
+</div>
+<main id="main-content" class="show" style="opacity:1">
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span>/</span></li><li> <li><a href="/about/">About</a></li> <li><span>/</span></li> <a href="/services/">Services</a></li><li><span>/</span></li><li aria-current="page">Hotel & Lodge Management Software</li></ol></nav>
+<section class="block page-hero">
+    <div class="container">
+        <div class="section-kicker reveal">Hotel & Lodge Management Software</div>
+        <h1 class="reveal">Front desk software that keeps<br><em>every room in sync.</em></h1>
+        <p class="lede reveal">A real Front Desk Management System covering reservations, room board, housekeeping, maintenance, billing and expenditure — built for a working lodge, not a demo.</p>
+    </div>
+</section>
+
+<section class="block">
+    <div class="container">
+        <div class="prose reveal">
+            <h2>Front desk management software for hotels and lodges.</h2>
+            <p>A hotel or lodge front desk needs reservations, room status, billing and housekeeping to stay in sync in real time — a booking made at the counter should immediately reflect on the room board. SURYA CODE builds Front Desk Management Systems (FDMS) that connect reservations, rooms, billing and operations into one dashboard.</p>
+            <h2>How it works</h2>
+            <p>Built as a web application (installable as a PWA, working offline with background sync) and, where a Windows desktop experience is preferred, as an Electron.js application with local-first storage and two-way Google Sheets sync — so the front desk keeps working even during a connectivity drop.</p>
+        </div>
+        <div class="feature-grid">
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Reservations & room board</h4>
+        <p>Bookings, room status and a visual room board that stays in sync with the front desk.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Check-in / check-out & folios</h4>
+        <p>Guest check-in/out with folio creation and billing tied to the stay.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Housekeeping & maintenance</h4>
+        <p>Track room-cleaning status and maintenance issues alongside the room board.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Billing & expenditure</h4>
+        <p>Guest billing plus a separate expenditure module for day-to-day lodge expenses.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Reports & dashboard</h4>
+        <p>Date-range filtered reports (including daily room-register PDFs) and a dashboard overview.</p>
+    </article>
+    <article class="feature-card reveal">
+        <i>◆</i>
+        <h4>Role-based access</h4>
+        <p>Admin-only actions such as room editing, with staff limited to day-to-day operations.</p>
+    </article></div>
+    </div>
+</section>
+
+<section class="block">
+    <div class="container">
+        
+<div class="section-head reveal">
+    <div><div class="section-kicker">FAQ</div><h2 class="section-title">Questions before<br>we start?</h2></div>
+    <p class="section-copy">Answers to what business owners usually ask before starting a project.</p>
+</div>
+
+        <div class="faq">
+        <article class="faq-item reveal"><button class="faq-q">Can the system work if our internet goes down?<span>+</span></button><div class="faq-a">Yes. It is built local-first with a PWA/offline mode (and an Electron desktop edition), syncing to the backend once the connection is back.</div></article>
+        <article class="faq-item reveal"><button class="faq-q">Can it generate a daily room register report?<span>+</span></button><div class="faq-a">Yes — a printable daily room register (PDF) grouped by register slot and room number can be generated directly from the reservation data.</div></article>
+        <article class="faq-item reveal"><button class="faq-q">Can staff and admin have different permissions?<span>+</span></button><div class="faq-a">Yes. Certain actions, such as editing room details, can be restricted to admin accounts while staff retain day-to-day operations.</div></article>
+        <article class="faq-item reveal"><button class="faq-q">Is this only for hotels, or also small lodges?<span>+</span></button><div class="faq-a">It is built for both — the module set (reservations, housekeeping, maintenance, billing, expenditure) scales down cleanly for a smaller lodge front desk.</div></article>
+        </div>
+    </div>
+</section>
+
+<div class="cta-band reveal">
+    <div>
+        <h3>Running your front desk on registers and phone calls?</h3>
+        <p>See how a real Front Desk Management System was built for a working lodge.</p>
+    </div>
+    <div class="btn-row">
+        <a href="/projects/ananda-lodge-fdms/" class="btn btn-primary">View the Case Study</a>
+        <a href="/#contact" class="btn btn-ghost">Talk About Your Property</a>
+    </div>
+</div>
+<div class="container"><div class="related-links reveal"><a href="/services/">All Services</a><a href="/projects/ananda-lodge-fdms/">Ananda Lodge FDMS — Case Study</a><a href="/billing-pos-software/">Billing & POS Software</a></div></div>
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-brand">SURYA <span>CODE</span><small>DIGITAL • SOFTWARE • WEB</small></div>
+        <div class="footer-links"><a href="/">Home</a><a href="/about/">About</a><a href="/services/">Services</a> <a href="/software-development/">Software</a><a href="/projects/">Work</a><a href="/#pricing">Pricing</a><a href="/#contact">Contact</a></div>
+              <div class="copyright">© <span id="year"></span> SURYA CODE. All rights reserved.</div>
+    </div>
+</footer>
+</main>
+
+<script src="/js/site.js"></script>
+</body>
+</html>
