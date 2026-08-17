@@ -64,7 +64,9 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="alternate icon" href="../icon.png">
 </head>
-<body>
+<body data-nav-section="services">
+<div id="sc-pointer-glow" aria-hidden="true"></div>
+<div id="sc-pointer-dot" aria-hidden="true"></div>
 
 <header class="site-nav">
     <div class="nav-inner">
@@ -76,11 +78,11 @@
             <span>SURYA CODE<small>DIGITAL SOLUTIONS</small></span>
         </a>
         <nav class="nav-links">
-            <a href="../">Home</a>
-            <a href="../about/">About</a>
-            <a href="../services/">Services</a>
-            <a href="../software-development/">Software</a>
-            <a href="../projects/">Work</a>
+            <a href="../" data-nav="home">Home</a>
+            <a href="../about/" data-nav="about">About</a>
+            <a href="../services/" data-nav="services">Services</a>
+            <a href="../software-development/" data-nav="software">Software</a>
+            <a href="../projects/" data-nav="work">Work</a>
             <a href="../#pricing">Pricing</a>
             <button class="theme-switcher" id="themeSwitcher" type="button" aria-label="Change website theme" data-theme-label="Luxury Gold" title="Luxury Gold">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -105,11 +107,11 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="../">Home</a>
-    <a href="../about/">About</a>
-    <a href="../services/">Services</a>
-    <a href="../software-development/">Software</a>
-    <a href="../projects/">Work</a>
+    <a href="../" data-nav="home">Home</a>
+    <a href="../about/" data-nav="about">About</a>
+    <a href="../services/" data-nav="services">Services</a>
+    <a href="../software-development/" data-nav="software">Software</a>
+    <a href="../projects/" data-nav="work">Work</a>
     <a href="../#pricing">Pricing</a>
     <a href="../#contact">Start a Project</a>
 </div>
@@ -213,6 +215,32 @@
     </div>
 </footer>
 </main>
+
+<!-- CHATBOT -->
+<button class="chat-toggle" id="chatToggle" aria-label="Open SURYA CODE assistant" title="Chat with SURYA CODE">
+    <span class="assistant-character" aria-hidden="true">👨‍💻</span>
+    <span class="assistant-hi" aria-hidden="true">Hi! 👋</span>
+    <span class="assistant-code" aria-hidden="true">&lt;/&gt;</span>
+</button>
+<div class="chat-panel" id="chatPanel">
+    <div class="chat-head">
+        <div><strong>SURYA CODE Assistant</strong><small>Ask about websites, software or services</small></div>
+        <button class="chat-close" id="chatClose">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">Hi! 👋 I’m the SURYA CODE assistant. Tell me what you want to build.</div>
+    </div>
+    <div class="chat-suggest">
+        <button data-q="I need a business website">Website</button>
+        <button data-q="I need billing software">Billing</button>
+        <button data-q="I need custom software">Software</button>
+        <button data-q="How can I contact you?">Contact</button>
+    </div>
+    <form class="chat-input" id="chatForm">
+        <input id="chatInput" autocomplete="off" placeholder="Type your question...">
+        <button type="submit">↑</button>
+    </form>
+</div>
 
 <script src="../js/site.js"></script>
 </body>

@@ -110,17 +110,161 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
 })();
 
-/* ACTIVE NAV LINK — highlight the nav item matching the current path */
-document.querySelectorAll(".nav-links a:not(.nav-cta), .mobile-menu a").forEach(a => {
-    const href = a.getAttribute("href") || "";
-    if (href.startsWith("#")) return;
-    // Resolve the (relative) href against the current page so it can be
-    // compared with location.pathname, which is always absolute. This also
-    // makes the comparison work correctly under a GitHub Pages project
-    // subpath (e.g. /SuryaCode/about/) instead of only at the site root.
-    const resolved = new URL(href, location.href).pathname.replace(/index\.html$/, "");
-    const current = location.pathname.replace(/index\.html$/, "");
-    if (resolved && (current === resolved || current === resolved.replace(/\/$/, ""))) {
-        a.classList.add("nav-current");
+/* ACTIVE NAV LINK — highlight the nav item for the current page's section.
+   Each <body> carries data-nav-section (e.g. "services"), and each header /
+   mobile-menu link carries a matching data-nav (e.g. data-nav="services").
+   This also correctly marks "Services" active on its sub-pages like
+   web-development/, billing-pos-software/, etc., and "Work" active on
+   individual project pages — not just on exact URL matches. */
+const currentSection = document.body.dataset.navSection;
+if (currentSection) {
+    document.querySelectorAll(
+        `.nav-links a[data-nav="${currentSection}"], .mobile-menu a[data-nav="${currentSection}"]`
+    ).forEach(a => a.classList.add("nav-current"));
+}
+
+/* Accessibility: reflect the active nav state to assistive tech too. */
+document.querySelectorAll(".nav-links a.nav-current, .mobile-menu a.nav-current")
+    .forEach(a => a.setAttribute("aria-current", "page"));
+
+/* =========================================================
+   SURYA CODE — CURSOR FOLLOW + TOUCH RIPPLE
+   Same behaviour as the homepage. Requires #sc-pointer-glow
+   and #sc-pointer-dot to be present in the page markup.
+========================================================= */
+(() => {
+    const glow = document.getElementById("sc-pointer-glow");
+    const dot = document.getElementById("sc-pointer-dot");
+
+    if (!glow || !dot) return;
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+    let active = false;
+
+    const follow = () => {
+        currentX += (targetX - currentX) * 0.18;
+        currentY += (targetY - currentY) * 0.18;
+
+        glow.style.left = `${currentX}px`;
+        glow.style.top = `${currentY}px`;
+
+        dot.style.left = `${targetX}px`;
+        dot.style.top = `${targetY}px`;
+
+        requestAnimationFrame(follow);
+    };
+
+    follow();
+
+    window.addEventListener("pointermove", (event) => {
+        // Ignore multi-touch pointers.
+        if (event.pointerType === "touch") return;
+
+        targetX = event.clientX;
+        targetY = event.clientY;
+
+        if (!active) {
+            active = true;
+            glow.classList.add("visible");
+            dot.classList.add("visible");
+        }
+    }, {passive:true});
+
+    window.addEventListener("pointerleave", () => {
+        active = false;
+        glow.classList.remove("visible");
+        dot.classList.remove("visible");
+    }, {passive:true});
+
+    const touchPoint = (x, y) => {
+        const ripple = document.createElement("span");
+        ripple.className = "sc-touch-ripple";
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        document.body.appendChild(ripple);
+
+        const count = 8;
+
+        for(let i = 0; i < count; i++){
+            const spark = document.createElement("span");
+            spark.className = "sc-touch-spark";
+
+            const angle = (Math.PI * 2 / count) * i + Math.random() * .35;
+            const distance = 22 + Math.random() * 34;
+
+            spark.style.left = `${x}px`;
+            spark.style.top = `${y}px`;
+            spark.style.setProperty("--sx", `${Math.cos(angle) * distance}px`);
+            spark.style.setProperty("--sy", `${Math.sin(angle) * distance}px`);
+
+            document.body.appendChild(spark);
+
+            spark.addEventListener("animationend", () => spark.remove(), {once:true});
+        }
+
+        ripple.addEventListener("animationend", () => ripple.remove(), {once:true});
+    };
+
+    window.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "touch" || event.pointerType === "pen") {
+            touchPoint(event.clientX, event.clientY);
+        }
+    }, {passive:true});
+})();
+
+/* =========================================================
+   SURYA CODE ASSISTANT — CHATBOT
+   Same rule-based demo used on the homepage, mirrored here so
+   every page has the full widget with all reply topics.
+   Replace getBotReply() with a real API call later if needed.
+========================================================= */
+(() => {
+    const chatToggle = document.getElementById("chatToggle");
+    const chatPanel = document.getElementById("chatPanel");
+    const chatClose = document.getElementById("chatClose");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+
+    if (!chatToggle || !chatPanel || !chatMessages || !chatForm || !chatInput) return;
+
+    chatToggle.addEventListener("click", () => chatPanel.classList.toggle("open"));
+    if (chatClose) chatClose.addEventListener("click", () => chatPanel.classList.remove("open"));
+
+    function addMessage(text, type) {
+        const div = document.createElement("div");
+        div.className = `msg ${type}`;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-});
+
+    function getBotReply(q) {
+        const x = q.toLowerCase();
+        if (/hello|hi|hey/.test(x)) return "Hi! 👋 Tell me what kind of website or software you need.";
+        if (/website|web site|web/.test(x)) return "SURYA CODE can create responsive business websites, landing pages, portfolios, service websites and website + admin systems.";
+        if (/billing|pos|invoice|shop|supermarket/.test(x)) return "We can build billing/POS workflows with products, billing, orders, payments, inventory and reports based on your business needs.";
+        if (/software|application|app|desktop|electron|windows/.test(x)) return "Custom business software and Windows Electron applications can be planned around your workflow.";
+        if (/price|cost|rate|budget/.test(x)) return "Pricing depends on pages, modules, integrations and support. Use the project form to request a custom quote.";
+        if (/contact|email|mail|phone|mobile|whatsapp|number/.test(x)) return "You can contact SURYA CODE at +91 63792 95869 (Phone / WhatsApp) or suryacode26@gmail.com. You can also use the project enquiry form on this page.";
+        if (/seo|google|ranking|rank|search|discover|ai|chatgpt|gemini|copilot|perplexity|visibility/.test(x)) return "SURYA CODE websites are built with SEO-friendly structure, useful content, structured data, responsive design and clear service information to improve search and AI discovery. No agency can honestly guarantee #1 rankings or first recommendations everywhere.";
+        if (/language|tamil|தமிழ்/.test(x)) return "ஆம்! நீங்கள் உங்கள் தேவையை தமிழில் எழுதலாம். தேவையைப் புரிந்து அதற்கேற்ற பதிலை வழங்க இந்த assistant-ஐ பின்னர் API/AI backend-க்கு இணைக்கலாம்.";
+        return "I can help with websites, billing/POS, custom software, Electron desktop apps, SEO, AI discovery, pricing and project enquiries. Tell me what you need.";
+    }
+
+    function sendChat(q) {
+        q = q.trim();
+        if (!q) return;
+        addMessage(q, "user");
+        chatInput.value = "";
+        setTimeout(() => addMessage(getBotReply(q), "bot"), 350);
+    }
+
+    chatForm.addEventListener("submit", e => { e.preventDefault(); sendChat(chatInput.value); });
+    document.querySelectorAll(".chat-suggest button").forEach(b =>
+        b.addEventListener("click", () => sendChat(b.dataset.q))
+    );
+})();
