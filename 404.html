@@ -8,6 +8,18 @@
 <meta name="description" content="The page you're looking for doesn't exist. Return to SURYA CODE to explore business websites, custom software and billing/POS solutions.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://suryacode.com/404.html">
+<script>
+  /* GitHub Pages serves this file for ANY missing URL, at any folder depth,
+     so plain relative paths (css/style.css, ./, etc.) break unless we anchor
+     them with <base>. This works for both a project page
+     (username.github.io/RepoName/...) and a custom/root domain. */
+  (function () {
+    var segs = location.pathname.split('/').filter(Boolean);
+    var isGithubIoProjectSite = /\.github\.io$/i.test(location.hostname) && segs.length > 0;
+    var base = isGithubIoProjectSite ? '/' + segs[0] + '/' : '/';
+    document.write('<base href="' + location.origin + base + '">');
+  })();
+</script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="icon.png">

@@ -114,8 +114,13 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 document.querySelectorAll(".nav-links a:not(.nav-cta), .mobile-menu a").forEach(a => {
     const href = a.getAttribute("href") || "";
     if (href.startsWith("#")) return;
-    const path = href.replace(/index\.html$/, "");
-    if (path && (location.pathname === path || location.pathname === path.replace(/\/$/, ""))) {
+    // Resolve the (relative) href against the current page so it can be
+    // compared with location.pathname, which is always absolute. This also
+    // makes the comparison work correctly under a GitHub Pages project
+    // subpath (e.g. /SuryaCode/about/) instead of only at the site root.
+    const resolved = new URL(href, location.href).pathname.replace(/index\.html$/, "");
+    const current = location.pathname.replace(/index\.html$/, "");
+    if (resolved && (current === resolved || current === resolved.replace(/\/$/, ""))) {
         a.classList.add("nav-current");
     }
 });
